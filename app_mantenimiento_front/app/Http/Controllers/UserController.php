@@ -13,7 +13,11 @@ class UserController extends Controller
     public function index()
     {
         $usuarios = User::all(); 
-        return view('usuario', compact('usuarios'));
+        $usuarios_activos = User::where('estado', 'Activo')->get();
+        $usuarios_inactivos = User::where('estado', 'Inactivo')->get();
+        $usuarios_vacaciones = User::where('estado', 'Vacaciones')->get();
+
+        return view('usuario', compact('usuarios', 'usuarios_activos', 'usuarios_inactivos', 'usuarios_vacaciones'));
     }
 
     /**
@@ -32,7 +36,7 @@ class UserController extends Controller
         $new_user = User::create([
             
             'nombre'  =>  $request->nombre,
-            'apellido' => $request->apellido,
+            'img_user' => $request->img_user,
             'estado'  =>  $request->estado,
             'email'  =>  $request->email,
             'rol'  =>  $request->rol,
@@ -71,7 +75,7 @@ class UserController extends Controller
             // Actualiza los campos del equipo
             $equipo->update([
                 'nombre' => $request->nombre,
-                'apellido' => $request->apellido,
+                'img_user' => $request->apellido,
                 'estado' => $request->estado,
                 'email' => $request->email,
                 'rol' => $request->rol,

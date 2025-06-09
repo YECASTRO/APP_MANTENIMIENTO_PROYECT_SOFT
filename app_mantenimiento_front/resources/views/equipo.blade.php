@@ -10,12 +10,11 @@
     <div class="row color-fondo content-page-100 content">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="mb-2">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item text-small breadcrumb_home"><a>Inicio</a></li>
-                <li class="breadcrumb-item text-small text-dark text-capitalize" id="nam_status"
+                <li class="breadcrumb-item text-small breadcrumb_home text-dark text-capitalize" id="nam_status"
                     aria-current="page">Gestión de equipos</li>
             </ol>
-            <div> <button class="btn btn-warning text-small rounded-4" data-bs-toggle="modal" data-bs-target="#modalRegistrarEquipo"> <i
-                        class="bi bi-robot bi-sm"></i>Registrar Nuevo equipo</button> </div>
+            <div class="mb-2"> <button class="btn btn-warning text-small rounded-4" data-bs-toggle="modal" data-bs-target="#modalRegistrarEquipo"> <i
+                        class="bi bi-robot bi-sm"></i> Registrar Nuevo equipo</button> </div>
         </nav>
 
         <div id="content_gestion_equipo" class=" h-100 d-flex justify-content-start align-items-start row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-4">
