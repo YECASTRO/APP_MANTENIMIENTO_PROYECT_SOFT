@@ -36,7 +36,7 @@
                     <div class="row">
                         <div class="col-10">
                             <div class="ps-lg-4 ps-2 py-lg-4 py-1">
-                                <h3 class="fw-bold"> Gestión de Mantenimiento</h3>
+                                <h5 class="fw-bold"> Gestión de Mantenimiento</h5>
                             </div>
                         </div>
 
@@ -60,53 +60,58 @@
                                     <p class="ps-2 text-secondary text-small">MENÚ PRINCIPAL</p>
                                 </div>
 
-                                <button class="text-dark nav-link  rounded-diam  rounded-2 active" href="/" id="v-pills-home-tab"
-                                    data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab"
-                                    aria-controls="v-pills-home" aria-selected="true">
+                              
+                                <a class="text-dark nav-link rounded-diam rounded-2 
+       @if(Request::routeIs('home')) active @endif" 
+                                    href="{{ route('home') }}"
+                                    id="v-pills-home-tab" {{-- Estos IDs y data-bs-toggle son redundantes si es navegación de página --}}
+                                    role="tab" aria-selected="{{ Request::routeIs('home') ? 'true' : 'false' }}">
                                     <div class="text-span ps-2">
                                         <i class="bi bi-house-fill bi-sm mx-2"></i>
                                         <span class="text-icon ps-1">Inicio</span>
                                     </div>
-                                </button>
+                                </a>
 
-                                <button class="text-dark nav-link rounded-diam "  href="/equipo" id="v-pills-status-tab"
-                                    data-bs-toggle="pill" data-bs-target="#v-pills-status" type="button"
-                                    aria-controls="v-pills-status" role="tab" aria-selected="false">
-                                    <div class="text-span  ps-2">
+                                
+                                <a class="text-dark nav-link rounded-diam
+       @if(Request::routeIs('equipos.index')) active @endif" {{-- Aquí se añade la clase 'active' --}}
+                                    href="{{ route('equipos.index') }}"
+                                    id="v-pills-status-tab" {{-- Estos IDs y data-bs-toggle son redundantes si es navegación de página --}}
+                                    role="tab" aria-selected="{{ Request::routeIs('equipos.index') ? 'true' : 'false' }}">
+                                    <div class="text-span ps-2">
                                         <i class="bi bi-archive bi-sm mx-2"></i>
                                         <span class="text-icon ps-1"> Gestión de equipos</span>
                                     </div>
-                                </button>
+                                </a>
 
-                                <button class="text-dark nav-link rounded-diam d-none" id="v-pills-status-details-tab"
-                                    data-bs-toggle="pill" data-bs-target="#v-pills-status-details" type="button"
-                                    aria-controls="v-pills-status-details" role="tab" aria-selected="false">
-                                    <div class="text-span  ps-2">
+
+                                <a class="text-dark nav-link rounded-diam d-none
+       @if(Request::routeIs('mantenimientos.index')) active @endif" {{-- Ajusta la ruta si es diferente --}}
+                                    href="{{ route('mantenimientos.index') }}" {{-- Ejemplo: 'mantenimientos.index' --}}
+                                    id="v-pills-status-details-tab"
+                                    role="tab" aria-selected="{{ Request::routeIs('mantenimientos.index') ? 'true' : 'false' }}">
+                                    <div class="text-span ps-2">
                                         <i class="bi bi-archive bi-sm mx-2"></i>
                                         <span class="text-icon ps-1"> Mantenimientos </span>
                                     </div>
-                                </button>
+                                </a>
 
                                 <div class="align-items-center">
                                     <p class="ps-2 text-secondary text-small">CONFIGURACIÓN</p>
                                 </div>
 
-                                <button class="text-dark nav-link rounded-diam " id="" data-bs-toggle="pill"
-                                    type="button" aria-controls="" aria-selected="false">
-                                    <div class="text-span  ps-2">
+                                {{-- Enlace de Usuarios --}}
+                                <a class="text-dark nav-link rounded-diam
+       @if(Request::routeIs('users.index')) active @endif" {{-- Ajusta la ruta si es diferente --}}
+                                    href="{{ route('users.index') }}" {{-- Ejemplo: 'users.index' --}}
+                                    id="v-pills-users-tab" {{-- Agregué un ID más apropiado --}}
+                                    role="tab" aria-selected="{{ Request::routeIs('users.index') ? 'true' : 'false' }}">
+                                    <div class="text-span ps-2">
                                         <i class="bi bi-people bi-sm mx-2"></i>
-                                        <span class="text-icon ps-1"> Usuarios </sspan>
+                                        <span class="text-icon ps-1"> Usuarios </span>
                                     </div>
-                                </button>
-
-                                <button class="text-dark nav-link rounded-diam " id="" data-bs-toggle="pill"
-                                    type="button" aria-controls="" aria-selected="false">
-                                    <div class="text-span  ps-2">
-                                        <i class="bi bi-gear bi-sm mx-2"></i>
-                                        <span class="text-icon ps-1"> Configuración</span>
-                                    </div>
-                                </button>
-
+                                </a>
+                            
                                 <button class="text-dark nav-link rounded-diam " id="" data-bs-toggle="pill"
                                     type="button" aria-controls="" aria-selected="false">
                                     <div class="text-span  ps-2">

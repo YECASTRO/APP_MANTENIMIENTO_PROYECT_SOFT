@@ -68,3 +68,5 @@ php artisan make:model Mantenimiento -mcr
 php artisan make:model Reporte -mcr
 php artisan make:model Alertas -mcr
 php artisan make:model SensorIot -mcr
+
+php artisan make:controller HomeController
